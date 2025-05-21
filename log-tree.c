@@ -151,7 +151,7 @@ static int add_ref_decoration(const char *refname, const char *referent UNUSED, 
 			      int flags UNUSED,
 			      void *cb_data)
 {
-	int i;
+	long unsigned int i;
 	struct object *obj;
 	enum object_type objtype;
 	enum decoration_type deco_type = DECORATION_NONE;
@@ -458,7 +458,7 @@ void fmt_output_subject(struct strbuf *filename,
 	}
 	strbuf_addf(filename, "%04d-%s", nr, subject);
 
-	if (max_len < filename->len)
+	if (max_len < (int) filename->len)
 		strbuf_setlen(filename, max_len);
 	strbuf_addstr(filename, suffix);
 }
